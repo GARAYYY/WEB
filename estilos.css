@@ -52,7 +52,8 @@ nav ul ul {
     display: none;
     position: absolute;
     top: 100%;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
     background-color: rgb(48, 48, 48);
     border-radius: 0 0 1.25rem 1.25rem;
     margin-top: 0.3125rem;
