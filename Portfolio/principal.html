@@ -10,9 +10,13 @@
 <body>
     <div id="contenedor">
         <nav>
-            <ul>
+            <div class="menu-hamburguesa" id="menuToggle">
+                &#9776;
+            </div>
+            <ul id="menu" class="menu">
                 <li><a href="principal.html">Inicio</a></li>
-                <li><a href="#">Fechas Especiales</a>
+                <li>
+                    <a href="#" class="menu-item">Fechas Especiales</a>
                     <ul class="submenu">
                         <li><a href="C2.html">2 Meses</a></li>
                         <li><a href="C6.html">Madrid</a></li>
@@ -24,7 +28,8 @@
                         <li><a href="Tu 20 cumpleaños.html">Tu 20 Cumplea&ntilde;os</a></li>
                     </ul>
                 </li>
-                <li><a href="#">T&uacute; al 100%</a>
+                <li>
+                    <a href="#" class="menu-item">T&uacute; al 100%</a>
                     <ul class="submenu">
                         <li><a href="About us.html">Sobre Nosotros</a></li>
                         <li><a href="Destacados.html">Destacados</a></li>
@@ -34,7 +39,8 @@
                         <li><a href="Emociones.html">Mis emociones</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Reflexi&oacute;n</a>
+                <li>
+                    <a href="#" class="menu-item">Reflexi&oacute;n</a>
                     <ul class="submenu">
                         <li><a href="C1.html">Me enamor&eacute;</a></li>
                         <li><a href="C3.html">Malentendidos</a></li>
@@ -46,7 +52,8 @@
                         <li><a href="C12.html">D&iacute;s duros</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Mis Debilidades</a>
+                <li>
+                    <a href="#" class="menu-item">Mis Debilidades</a>
                     <ul class="submenu">
                         <li><a href="Carta de despedida.html">Carta de Despedida</a></li>
                         <li><a href="No puedo mas.html">No puedo m&aacute;s</a></li>
@@ -97,8 +104,60 @@
             </p>
         </main>
         <footer>
-            &#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;
+            &#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;&#129293;
         </footer>
     </div>
+    <script src="../script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuHamburguesa = document.querySelector(".menu-hamburguesa");
+            const navMenu = document.querySelector("nav ul");
+            const menuItems = document.querySelectorAll("nav ul > li");
+
+            menuHamburguesa.addEventListener("click", function () {
+                navMenu.classList.toggle("active");
+                menuItems.forEach(item => {
+                    const submenu = item.querySelector("ul");
+                    if (submenu) {
+                        submenu.style.display = 'none'; 
+                    }
+                });
+            });
+
+            menuItems.forEach(item => {
+                const submenu = item.querySelector("ul");
+                if (submenu) {
+                    item.querySelector(".menu-item").addEventListener("click", function (event) {
+                        event.preventDefault();
+                        
+                        const isVisible = submenu.style.display === 'block';
+                        submenu.style.display = isVisible ? 'none' : 'block';
+
+                        menuItems.forEach(otherItem => {
+                            if (otherItem !== item) {
+                                const otherSubmenu = otherItem.querySelector("ul");
+                                if (otherSubmenu) {
+                                    otherSubmenu.style.display = 'none'; 
+                                }
+                            }
+                        });
+                    });
+                }
+            });
+
+            document.addEventListener("click", function (event) {
+                const isClickInsideMenu = navMenu.contains(event.target) || menuHamburguesa.contains(event.target);
+                if (!isClickInsideMenu) {
+                    navMenu.classList.remove("active");
+                    menuItems.forEach(item => {
+                        const submenu = item.querySelector("ul");
+                        if (submenu) {
+                            submenu.style.display = 'none';
+                        }
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>

@@ -24,10 +24,23 @@ nav ul {
 }
 
 .submenu {
-    border-radius: 1.875rem;
+    display: none;
+    position: absolute;
+    background-color: rgb(48, 48, 48);
+    border-radius: 1.5rem;
     border: 0.125rem solid rgb(0, 17, 255);
-    padding-top: 0.625rem;
-    padding-bottom: 0.625rem;
+    margin-top: 0.3125rem;
+    z-index: 1001;
+    padding: 20px;
+    min-width: 150px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.submenu li {
+    display: flex;
+    justify-content: center;
 }
 
 nav ul li {
@@ -50,24 +63,19 @@ nav ul li:hover {
 
 nav ul ul {
     display: none;
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgb(48, 48, 48);
-    border-radius: 0 0 1.25rem 1.25rem;
-    margin-top: 0.3125rem;
-    z-index: 1001;
+    justify-content: center;
 }
 
-nav ul li:hover > ul {
+nav ul li:hover>ul {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 nav ul ul li {
-    width: 12.5rem;
+    width: auto;
     text-align: center;
+    margin: 0.3125rem 0;
 }
 
 nav ul ul li:hover {
@@ -76,8 +84,14 @@ nav ul ul li:hover {
 }
 
 nav ul ul li a {
-    padding: 0.625rem;
+    padding: 0.625rem 1.5rem;
     border-radius: 1.25rem;
+    white-space: nowrap;
+    color: #fff;
+}
+
+nav ul ul li a:hover {
+    background-color: rgb(60, 60, 60);
 }
 
 footer {
@@ -88,7 +102,8 @@ footer {
     color: white;
 }
 
-h1, h3 {
+h1,
+h3 {
     margin: 0.5em;
     padding: 0.5em;
     text-align: center;
@@ -178,7 +193,8 @@ body {
     border-radius: 0.5rem;
 }
 
-.prev, .next {
+.prev,
+.next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -200,7 +216,8 @@ body {
     right: 0.625rem;
 }
 
-.prev:hover, .next:hover {
+.prev:hover,
+.next:hover {
     background-color: rgba(41, 41, 41, 0.815);
 }
 
@@ -208,10 +225,21 @@ body {
     nav ul {
         flex-direction: column;
         align-items: center;
+        display: none;
+        width: 100%;
+    }
+
+    nav ul.active {
+        display: flex;
     }
 
     nav ul li {
         margin-bottom: 0.625rem;
+        width: auto;
+    }
+
+    .menu-item {
+        cursor: pointer;
     }
 
     main {
@@ -219,7 +247,8 @@ body {
         margin: 0.625rem;
     }
 
-    h1, h3 {
+    h1,
+    h3 {
         font-size: 1.5rem;
     }
 
@@ -233,5 +262,13 @@ body {
 
     img {
         width: 100%;
+    }
+
+    .menu-hamburguesa {
+        display: block;
+        font-size: 2rem;
+        color: white;
+        cursor: pointer;
+        margin: 0.625rem;
     }
 }
