@@ -221,6 +221,10 @@ body {
     background-color: rgba(41, 41, 41, 0.815);
 }
 
+.menu-hamburguesa {
+    display: none; /* Oculta la hamburguesa en pantallas grandes */
+}
+
 @media (max-width: 768px) {
     nav ul {
         flex-direction: column;
