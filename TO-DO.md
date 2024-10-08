@@ -1,0 +1,2 @@
+-- Añadir fotos a las paginas del cronograma
+-- Añadir fechas a las paginas del cronograma
