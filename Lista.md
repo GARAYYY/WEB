@@ -1,2 +1,3 @@
 -- Añadir fotos a las paginas del cronograma
 -- Añadir fechas a las paginas del cronograma
+-- Añadir cambio de colores en funcion de las cookies
